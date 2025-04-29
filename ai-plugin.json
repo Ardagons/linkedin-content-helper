@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "LinkedIn Content Helper",
+  "name_for_model": "linkedin_content_helper",
+  "description_for_human": "Génère des idées de posts LinkedIn à partir de profils.",
+  "description_for_model": "Assistant qui génère des idées de posts LinkedIn en s’appuyant sur les fonctions get_user_profile, get_top_posts et generate_content_idea.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://ardagons.github.io/linkedin-content-helper/openapi.json"
+  },
+  "logo_url": "https://ton-nom-utilisateur.github.io/linkedin-content-helper/logo.png",
+  "contact_email": "lemarketingautomatise@gmail.com",
+  "legal_info_url": "https://ardagons.github.io/linkedin-content-helper/legal"
+}

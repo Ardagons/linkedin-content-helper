@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LinkedIn Content Helper API",
+    "version": "1.0.0",
+    "description": "API pour générer des idées de posts LinkedIn à partir de profils."
+  },
+  "servers": [
+    {
+      "url": "https://ardagons.github.io/linkedin-content-helper",
+      "description": "Serveur GitHub Pages hébergeant l'API"
+    }
+  ],
+  "paths": {
+    "/get_user_profile": {
+      "get": {
+        "summary": "Récupère les informations du profil LinkedIn de l'utilisateur",
+        "operationId": "getUserProfile",
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "URL du profil LinkedIn de l'utilisateur",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Profil utilisateur récupéré avec succès"
+          }
+        }
+      }
+    },
+    "/get_top_posts": {
+      "get": {
+        "summary": "Récupère les 5 publications avec le plus de réactions",
+        "operationId": "getTopPosts",
+        "parameters": [
+          {
+            "name": "linkedin_url",
+            "in": "query",
+            "description": "URL du profil LinkedIn cible",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Publications récupérées avec succès"
+          }
+        }
+      }
+    },
+    "/generate_content_idea": {
+      "post": {
+        "summary": "Génère des idées de contenu basées sur les profils",
+        "operationId": "generateContentIdea",
+        "requestBody": {
+          "description": "Données des profils utilisateur et cible",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_profile": {
+                    "type": "object",
+                    "description": "Données du profil de l'utilisateur"
+                  },
+                  "target_profile": {
+                    "type": "object",
+                    "description": "Données du profil cible"
+                  }
+                },
+                "required": ["user_profile", "target_profile"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Idée de contenu générée avec succès"
+          }
+        }
+      }
+    }
+  }
+}
