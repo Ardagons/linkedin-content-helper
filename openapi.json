@@ -7,84 +7,29 @@
   },
   "servers": [
     {
-    "url": "https://fresh-linkedin-profile-data.p.rapidapi.com",
-    "description": "Serveur API via RapidAPI pour récupérer les profils LinkedIn"
+      "url": "https://fresh-linkedin-profile-data.p.rapidapi.com",
+      "description": "RapidAPI LinkedIn Scraper"
     }
   ],
   "paths": {
-    "/get_user_profile": {
+    "/get-linkedin-profile": {
       "get": {
-        "summary": "Récupère les informations du profil LinkedIn de l'utilisateur",
+        "summary": "Récupère les infos du profil LinkedIn",
         "operationId": "getUserProfile",
         "parameters": [
           {
             "name": "linkedin_url",
             "in": "query",
-            "description": "URL du profil LinkedIn de l'utilisateur",
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "L'URL du profil LinkedIn à analyser"
           }
         ],
         "responses": {
           "200": {
-            "description": "Profil utilisateur récupéré avec succès"
-          }
-        }
-      }
-    },
-    "/get_top_posts": {
-      "get": {
-        "summary": "Récupère les 5 publications avec le plus de réactions",
-        "operationId": "getTopPosts",
-        "parameters": [
-          {
-            "name": "linkedin_url",
-            "in": "query",
-            "description": "URL du profil LinkedIn cible",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Publications récupérées avec succès"
-          }
-        }
-      }
-    },
-    "/generate_content_idea": {
-      "post": {
-        "summary": "Génère des idées de contenu basées sur les profils",
-        "operationId": "generateContentIdea",
-        "requestBody": {
-          "description": "Données des profils utilisateur et cible",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "user_profile": {
-                    "type": "object",
-                    "description": "Données du profil de l'utilisateur"
-                  },
-                  "target_profile": {
-                    "type": "object",
-                    "description": "Données du profil cible"
-                  }
-                },
-                "required": ["user_profile", "target_profile"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Idée de contenu générée avec succès"
+            "description": "Succès"
           }
         }
       }
