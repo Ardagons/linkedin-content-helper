@@ -7,8 +7,8 @@
   },
   "servers": [
     {
-      "url": "https://ardagons.github.io/linkedin-content-helper",
-      "description": "Serveur GitHub Pages hébergeant l'API"
+    "url": "https://fresh-linkedin-profile-data.p.rapidapi.com",
+    "description": "Serveur API via RapidAPI pour récupérer les profils LinkedIn"
     }
   ],
   "paths": {
