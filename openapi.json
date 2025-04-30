@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
     "title": "LinkedIn Content Helper API",
     "version": "1.0.0",
@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://philaudet.app.n8n.cloud/webhook/linkedin-profile", 
+      "url": "https://philaudet.app.n8n.cloud/webhook",
       "description": "Serveur N8N pour interroger RapidAPI"
     }
   ],
@@ -39,7 +39,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "full_name": { "type": "string" },
+                    "headline": { "type": "string" },
+                    "location": { "type": "string" },
+                    "about": { "type": "string" }
+                  }
                 }
               }
             }
