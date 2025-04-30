@@ -3,33 +3,46 @@
   "info": {
     "title": "LinkedIn Content Helper API",
     "version": "1.0.0",
-    "description": "API pour générer des idées de posts LinkedIn à partir de profils."
+    "description": "API intermédiaire pour récupérer les données LinkedIn via RapidAPI."
   },
   "servers": [
     {
-      "url": "https://fresh-linkedin-profile-data.p.rapidapi.com",
-      "description": "RapidAPI LinkedIn Scraper"
+      "url": "https://philaudet.app.n8n.cloud/webhook/linkedin-profile", 
+      "description": "Serveur N8N pour interroger RapidAPI"
     }
   ],
   "paths": {
-    "/get-linkedin-profile": {
-      "get": {
-        "summary": "Récupère les infos du profil LinkedIn",
+    "/linkedin-profile": {
+      "post": {
+        "summary": "Récupère les infos d’un profil LinkedIn via RapidAPI",
         "operationId": "getUserProfile",
-        "parameters": [
-          {
-            "name": "linkedin_url",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "description": "L'URL du profil LinkedIn à analyser"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "linkedin_url": {
+                    "type": "string",
+                    "description": "Lien du profil LinkedIn à analyser"
+                  }
+                },
+                "required": ["linkedin_url"]
+              }
+            }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "Succès"
+            "description": "Succès - Données du profil reçues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       }
