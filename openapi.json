@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://philaudet.app.n8n.cloud/webhook",
+      "url": "https://philaudet.app.n8n.cloud/webhook/linkedin-profile",
       "description": "Serveur N8N pour interroger RapidAPI"
     }
   ],
