@@ -1,0 +1,105 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "LinkedIn Content Helper API V2",
+    "version": "2.0.0",
+    "description": "API intermédiaire pour récupérer les données LinkedIn via RapidAPI – version 2"
+  },
+  "servers": [
+    {
+      "url": "https://philaudet.app.n8n.cloud/webhook",
+      "description": "Webhook de production N8N pour la V2"
+    }
+  ],
+  "paths": {
+    "/linkedin-profile-v2": {
+      "post": {
+        "summary": "Récupère les infos d’un profil LinkedIn via RapidAPI (V2)",
+        "operationId": "getUserProfileV2",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "linkedin_url": {
+                    "type": "string",
+                    "description": "Lien du profil LinkedIn à analyser"
+                  }
+                },
+                "required": ["linkedin_url"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès - Données du profil reçues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "full_name": { "type": "string" },
+                    "headline": { "type": "string" },
+                    "location": { "type": "string" },
+                    "about": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/linkedin-posts-v2": {
+      "post": {
+        "summary": "Analyse les 50 derniers posts et renvoie les 5 plus engageants avec idées adaptées (V2)",
+        "operationId": "getTopPostsV2",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "linkedin_url": {
+                    "type": "string",
+                    "description": "Lien du profil LinkedIn à analyser"
+                  },
+                  "user_description": {
+                    "type": "string",
+                    "description": "Résumé du profil de l'utilisateur (secteur, cible, objectif, positionnement)"
+                  }
+                },
+                "required": ["linkedin_url", "user_description"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès - Top posts analysés et idées générées",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "post_url": { "type": "string" },
+                      "reaction_count": { "type": "integer" },
+                      "text_excerpt": { "type": "string" },
+                      "content_idea": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
