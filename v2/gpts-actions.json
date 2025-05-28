@@ -1,0 +1,14 @@
+{
+  "getTopPostsV2": {
+    "parameters": {
+      "linkedin_url": "{{inputs.linkedin_url}}",
+      "user_description": "{{inputs.user_description}}",
+      "objectif": "{{inputs.objectif}}",
+      "audience": "{{inputs.audience}}",
+      "douleurs": "{{inputs.douleurs}}",
+      "tabous": "{{inputs.tabous}}",
+      "difference": "{{inputs.difference}}",
+      "exemple_post": "{{inputs.exemple_post}}"
+    }
+  }
+}

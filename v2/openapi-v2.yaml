@@ -39,6 +39,7 @@ paths:
                     type: string
                   about:
                     type: string
+
   /linkedin-posts-v2:
     post:
       summary: Analyse les 50 derniers posts et renvoie les 5 plus engageants avec idées adaptées (V2)
@@ -55,25 +56,25 @@ paths:
                   description: Lien du profil LinkedIn à analyser
                 user_description:
                   type: string
-                  description: Résumé du profil de l'utilisateur (secteur, cible, objectif, positionnement)
+                  description: Résumé du profil de l'utilisateur
                 objectif:
                   type: string
-                  description: Objectif principal de l'utilisateur sur LinkedIn
+                  description: Objectif principal de l'utilisateur
                 audience:
                   type: string
-                  description: Audience cible de l'utilisateur
+                  description: Audience cible
                 douleurs:
                   type: string
-                  description: Problèmes ou douleurs rencontrés par l'audience
+                  description: Douleurs ou frustrations principales
                 tabous:
                   type: string
-                  description: Sujets que l'utilisateur souhaite éviter
+                  description: Sujets à éviter
                 difference:
                   type: string
-                  description: Ce qui distingue l'utilisateur dans son secteur
+                  description: Ce qui distingue l'utilisateur
                 exemple_post:
                   type: string
-                  description: Exemple de post aligné avec le positionnement de l'utilisateur
+                  description: Exemple de post aligné avec son positionnement
               required:
                 - linkedin_url
                 - user_description
