@@ -2,7 +2,7 @@
   "getTopPostsV2": {
     "parameters": {
       "linkedin_url": "{{inputs.linkedin_url}}",
-      "user_description": "{{inputs.user_description}}",
+      "user_description": "{{profil_analyse}}",
       "objectif": "{{inputs.objectif}}",
       "audience": "{{inputs.audience}}",
       "douleurs": "{{inputs.douleurs}}",
